@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Field Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#111;
+    --panel:#1c1c1c;
+    --panel2:#181818;
+    --line:#272727;
+    --chalk:#e6e2db;
+    --chalk-dim:#666;
+    --orange:#f4610a;
+    --blue:#4ab3f4;
+    --green:#3ddc84;
+    --yellow:#f4c10a;
+    --purple:#b07aff;
+    --red:#e05050;
+    --teal:#2dd4bf;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--chalk);
+    font-family:'Barlow', sans-serif;
+    padding:24px 16px 60px;
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+  h1{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:800;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    font-size:2rem;
+    color:#fff;
+    margin:0 0 4px;
+  }
+  .sub{font-family:'IBM Plex Mono',monospace;color:var(--chalk-dim);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px;}
+  .tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:16px;}
+  .tab-btn{
+    background:none;
+    color:var(--chalk-dim);
+    border:1px solid var(--line);
+    padding:7px 14px;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:500;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-size:0.62rem;
+    cursor:pointer;
+    border-radius:2px;
+    transition:all .15s;
+  }
+  .tab-btn:hover{color:var(--chalk);border-color:#444;}
+  .tab-btn.active{color:#fff;border-color:var(--tc,var(--orange));background:#1e1e1e;}
+  .panel{display:none;}
+  .panel.active{display:block;}
+  .card{
+    background:var(--panel2);
+    border:1px solid var(--line);
+    border-left:3px solid var(--acc,var(--orange));
+    border-radius:0 3px 3px 0;
+    margin-bottom:12px;
+    overflow:hidden;
+  }
+  .card-head{
+    padding:14px 16px;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .card-title{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    font-size:1.05rem;
+    color:#fff;
+  }
+  .card-meta{font-family:'IBM Plex Mono',monospace;color:var(--chalk-dim);font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;margin-top:3px;}
+  .chevron{color:var(--acc,var(--orange));font-size:14px;transition:transform .15s;}
+  .card.open .chevron{transform:rotate(90deg);}
+  .card-body{display:none;padding:0 16px 16px;}
+  .card.open .card-body{display:block;}
+  table{width:100%;border-collapse:collapse;font-size:0.87rem;margin:8px 0;}
+  th,td{text-align:left;padding:6px 4px;border-bottom:1px solid var(--line);}
+  th{color:var(--acc,var(--orange));text-transform:uppercase;font-size:0.58rem;letter-spacing:0.1em;font-family:'IBM Plex Mono',monospace;font-weight:500;}
+  .tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.58rem;
+    letter-spacing:0.06em;
+    color:var(--chalk-dim);
+    border:1px solid var(--line);
+    padding:2px 6px;
+    border-radius:2px;
+    margin:2px 4px 2px 0;
+    text-transform:uppercase;
+  }
+  .note{color:var(--chalk-dim);font-size:0.78rem;line-height:1.5;margin-top:8px;border-top:1px solid var(--line);padding-top:8px;}
+  .alt{color:var(--yellow);font-family:'IBM Plex Mono',monospace;font-size:0.85em;}
+  .finisher-box{
+    background:#151208;
+    border:1px solid #3a2e00;
+    border-radius:3px;
+    padding:14px 16px;
+    margin-top:16px;
+  }
+  .finisher-title{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    font-size:0.9rem;
+    color:var(--yellow);
+    margin-bottom:4px;
+  }
+  .finisher-sub{font-family:'IBM Plex Mono',monospace;color:var(--chalk-dim);font-size:0.62rem;margin-bottom:10px;}
+  .finisher-options{display:flex;flex-wrap:wrap;gap:8px;}
+  .fin-opt{
+    flex:1 1 140px;
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:10px;
+    cursor:pointer;
+    font-size:0.82rem;
+    text-align:center;
+  }
+  .fin-opt.picked{border-color:var(--yellow);color:var(--yellow);}
+  .fin-opt small{display:block;font-family:'IBM Plex Mono',monospace;color:var(--chalk-dim);font-size:0.6rem;margin-top:2px;}
+  .fin-opt.picked small{color:var(--yellow);}
+  .log{margin-top:16px;border-top:1px solid var(--line);padding-top:12px;}
+  .log-title{font-family:'Barlow Condensed', sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;font-size:0.85rem;color:var(--acc,var(--orange));margin-bottom:8px;}
+  .log-form{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+  .log-form input, .log-form select{
+    background:var(--bg);
+    border:1px solid var(--line);
+    color:var(--chalk);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    padding:6px 8px;
+    border-radius:2px;
+    flex:1 1 100px;
+  }
+  .log-form button{
+    background:var(--acc,var(--orange));
+    color:#111;
+    border:none;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:0.7rem;
+    letter-spacing:0.06em;
+    padding:6px 14px;
+    border-radius:2px;
+    cursor:pointer;
+  }
+  .log-del{color:var(--chalk-dim);cursor:pointer;}
+  .wu-wrap{margin-bottom:14px;}
+  .wu-btn{
+    background:none;
+    border:1px solid var(--line);
+    color:var(--chalk-dim);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.62rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    padding:7px 14px;
+    cursor:pointer;
+    border-radius:2px;
+    transition:all .15s;
+  }
+  .wu-btn:hover{color:var(--chalk);border-color:#444;}
+  .wu-body{display:none;margin-top:8px;padding:10px 14px;background:var(--bg);border:1px solid var(--line);border-radius:2px;}
+  .wu-body.open{display:block;}
+  .wu-item{display:flex;justify-content:space-between;gap:14px;padding:5px 0;border-bottom:1px solid var(--line);font-size:0.82rem;color:var(--chalk-dim);}
+  .wu-item:last-child{border-bottom:none;}
+  .wu-ex{color:var(--chalk);}
+  .wu-spec{font-family:'IBM Plex Mono',monospace;font-size:0.67rem;color:var(--chalk-dim);white-space:nowrap;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Field Program</h1>
+  <div class="sub">Busy shifts. Young kids. No excuses.</div>
+
+  <div class="tabs">
+    <button class="tab-btn active" style="--tc:var(--orange)" data-tab="total">Total Body</button>
+    <button class="tab-btn" style="--tc:var(--blue)" data-tab="split">Upper / Lower</button>
+    <button class="tab-btn" style="--tc:var(--green)" data-tab="cindy">Cindy</button>
+    <button class="tab-btn" style="--tc:var(--teal)" data-tab="quick">Quick Hit</button>
+    <button class="tab-btn" style="--tc:var(--red)" data-tab="conditioning">Conditioning</button>
+  </div>
+
+  <!-- TOTAL BODY -->
+  <div class="panel active" id="total">
+    <div class="card open" style="--acc:var(--orange)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">The 300</div>
+          <div class="card-meta">Total body · ~45 min · 2–4x/week</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <div class="wu-wrap">
+          <button class="wu-btn" onclick="toggleWU(event,this)">▸ Warm-up (5–6 min)</button>
+          <div class="wu-body">
+            <div class="wu-item"><span class="wu-ex">Dead hang</span><span class="wu-spec">2 x 20 sec</span></div>
+            <div class="wu-item"><span class="wu-ex">Scapular pull-ups</span><span class="wu-spec">10 reps</span></div>
+            <div class="wu-item"><span class="wu-ex">Band pull-aparts</span><span class="wu-spec">15 reps</span></div>
+            <div class="wu-item"><span class="wu-ex">Cat-cow</span><span class="wu-spec">10 slow reps</span></div>
+            <div class="wu-item"><span class="wu-ex">Good mornings (BW)</span><span class="wu-spec">12 reps</span></div>
+            <div class="wu-item"><span class="wu-ex">Reverse lunge (BW)</span><span class="wu-spec">8 each leg</span></div>
+            <div class="wu-item"><span class="wu-ex">Pike push-up (easy)</span><span class="wu-spec">8 reps</span></div>
+          </div>
+        </div>
+        <div>
+          <span class="tag">Vertical Pull</span>
+          <span class="tag">Hinge</span>
+          <span class="tag">Horizontal Push</span>
+          <span class="tag">Squat/Power</span>
+          <span class="tag">Core</span>
+          <span class="tag">Horizontal Pull</span>
+        </div>
+        <table>
+          <tr><th>#</th><th>Movement</th><th>Reps</th><th>Pattern</th></tr>
+          <tr><td>1</td><td>Pull-ups</td><td>25</td><td>Vertical Pull</td></tr>
+          <tr><td>2</td><td>DB Deadlift <span class="alt">(alt: KB Swing)</span></td><td>50</td><td>Hinge</td></tr>
+          <tr><td>3</td><td>Push-ups</td><td>50</td><td>Horizontal Push</td></tr>
+          <tr><td>4</td><td>Box Jumps <span class="alt">(alt: Goblet Squat + vest / Jump Squat)</span></td><td>50</td><td>Squat/Power</td></tr>
+          <tr><td>5</td><td>Floor Wipers <span class="alt">(alt: Leg Raises)</span></td><td>50</td><td>Core</td></tr>
+          <tr><td>6</td><td>Ring Inverted Rows</td><td>50</td><td>Horizontal Pull</td></tr>
+          <tr><td>7</td><td>Ring Push-ups <span class="alt">(alt: Clean & Press)</span></td><td>25</td><td>Horizontal/Vertical Push</td></tr>
+        </table>
+        <div class="note">Straight sets, top to bottom, 300 reps total. Track total time — beat it next time. That's your progression metric. Goblet squat is always loaded with the weighted vest.</div>
+        <div id="finisher-total"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPPER / LOWER SPLIT -->
+  <div class="panel" id="split">
+    <div class="card" style="--acc:var(--blue)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Upper Split</div>
+          <div class="card-meta">Push + Pull supersets · ~35 min</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <div class="wu-wrap">
+          <button class="wu-btn" onclick="toggleWU(event,this)">▸ Warm-up (5 min)</button>
+          <div class="wu-body">
+            <div class="wu-item"><span class="wu-ex">Dead hang</span><span class="wu-spec">2 x 20 sec</span></div>
+            <div class="wu-item"><span class="wu-ex">Scapular pull-ups</span><span class="wu-spec">10 reps</span></div>
+            <div class="wu-item"><span class="wu-ex">Band pull-aparts</span><span class="wu-spec">2 x 15</span></div>
+            <div class="wu-item"><span class="wu-ex">Arm circles</span><span class="wu-spec">10 each direction</span></div>
+            <div class="wu-item"><span class="wu-ex">Pike push-up (easy)</span><span class="wu-spec">8 reps</span></div>
+          </div>
+        </div>
+        <table>
+          <tr><th>Superset</th><th>A</th><th>B</th><th>Sets</th></tr>
+          <tr><td>1</td><td>Pull-ups</td><td>Dips</td><td>2</td></tr>
+          <tr><td>2</td><td>Ring Rows</td><td>Pike Push-up</td><td>2</td></tr>
+          <tr><td>3</td><td>Ring Face Pull</td><td>Ring Push-up</td><td>2</td></tr>
+        </table>
+        <div class="note">2 sets per superset. Push paired with pull each round. Straight through, minimal rest between the pair, rest at the end of each superset before moving to the next.</div>
+        <div id="finisher-upper"></div>
+      </div>
+    </div>
+    <div class="card" style="--acc:var(--teal)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Upper Split — EMOM</div>
+          <div class="card-meta">Cardio variant · ~15–20 min</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <div class="wu-wrap">
+          <button class="wu-btn" onclick="toggleWU(event,this)">▸ Warm-up (5 min)</button>
+          <div class="wu-body">
+            <div class="wu-item"><span class="wu-ex">Dead hang</span><span class="wu-spec">2 x 20 sec</span></div>
+            <div class="wu-item"><span class="wu-ex">Scapular pull-ups</span><span class="wu-spec">10 reps</span></div>
+            <div class="wu-item"><span class="wu-ex">Band pull-aparts</span><span class="wu-spec">2 x 15</span></div>
+            <div class="wu-item"><span class="wu-ex">Arm circles</span><span class="wu-spec">10 each direction</span></div>
+            <div class="wu-item"><span class="wu-ex">Pike push-up (easy)</span><span class="wu-spec">8 reps</span></div>
+          </div>
+        </div>
+        <div class="note">Odd minutes: Pull-ups. Even minutes: Push-ups/Dips. Same movements as the superset version, run against the clock instead of straight sets — built for cardiovascular carryover.</div>
+        <div id="finisher-upper-emom"></div>
+      </div>
+    </div>
+    <div class="card" style="--acc:var(--purple)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Lower Split</div>
+          <div class="card-meta">Lunge-anchored · ~35 min</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <div class="wu-wrap">
+          <button class="wu-btn" onclick="toggleWU(event,this)">▸ Warm-up (5 min)</button>
+          <div class="wu-body">
+            <div class="wu-item"><span class="wu-ex">Leg swings (front + side)</span><span class="wu-spec">10 each</span></div>
+            <div class="wu-item"><span class="wu-ex">Hip circles</span><span class="wu-spec">10 each direction</span></div>
+            <div class="wu-item"><span class="wu-ex">Reverse lunge (BW)</span><span class="wu-spec">8 each leg</span></div>
+            <div class="wu-item"><span class="wu-ex">Good mornings (BW)</span><span class="wu-spec">12 reps</span></div>
+            <div class="wu-item"><span class="wu-ex">Glute bridge</span><span class="wu-spec">15 reps</span></div>
+          </div>
+        </div>
+        <table>
+          <tr><th>Movement</th><th>Pattern</th><th>Sets</th></tr>
+          <tr><td>Bulgarian Split Squat <span class="alt">(alt: Goblet Squat + vest)</span></td><td>Lunge</td><td>2</td></tr>
+          <tr><td>Step-up</td><td>Lunge</td><td>2</td></tr>
+          <tr><td>Reverse Lunge</td><td>Lunge</td><td>2</td></tr>
+          <tr><td>KB Swing</td><td>Hinge</td><td>2</td></tr>
+          <tr><td>Carries</td><td>Loaded Carry</td><td>2</td></tr>
+        </table>
+        <div class="note">2 sets per movement. Lunge variations rotate through the session; KB swing covers the hinge element.</div>
+        <div id="finisher-lower"></div>
+      </div>
+    </div>
+    <div class="card" style="--acc:var(--red)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Lower Split — EMOM</div>
+          <div class="card-meta">Cardio variant · ~15–20 min</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <div class="wu-wrap">
+          <button class="wu-btn" onclick="toggleWU(event,this)">▸ Warm-up (5 min)</button>
+          <div class="wu-body">
+            <div class="wu-item"><span class="wu-ex">Leg swings (front + side)</span><span class="wu-spec">10 each</span></div>
+            <div class="wu-item"><span class="wu-ex">Hip circles</span><span class="wu-spec">10 each direction</span></div>
+            <div class="wu-item"><span class="wu-ex">Reverse lunge (BW)</span><span class="wu-spec">8 each leg</span></div>
+            <div class="wu-item"><span class="wu-ex">Good mornings (BW)</span><span class="wu-spec">12 reps</span></div>
+            <div class="wu-item"><span class="wu-ex">Glute bridge</span><span class="wu-spec">15 reps</span></div>
+          </div>
+        </div>
+        <div class="note">Odd minutes: Reverse Lunge/Step-up. Even minutes: KB Swing. Same lunge-anchored movements, run on the clock.</div>
+        <div id="finisher-lower-emom"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CINDY -->
+  <div class="panel" id="cindy">
+    <div class="card open" style="--acc:var(--green)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Classic Cindy</div>
+          <div class="card-meta">AMRAP 20 · your benchmark</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>Movement</th><th>Reps</th></tr>
+          <tr><td>Pull-ups</td><td>5</td></tr>
+          <tr><td>Push-ups</td><td>10</td></tr>
+          <tr><td>Reverse Lunges <span class="alt">(alt: Squats)</span></td><td>15</td></tr>
+        </table>
+        <div class="note">As many rounds as possible in 20 minutes. Score it every time — this is your tracked benchmark.</div>
+      </div>
+    </div>
+    <div class="card" style="--acc:var(--yellow)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Posterior Cindy</div>
+          <div class="card-meta">AMRAP 20 · upper back focus</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>Movement</th><th>Reps</th></tr>
+          <tr><td>Ring Inverted Rows</td><td>5</td></tr>
+          <tr><td>Push-ups</td><td>10</td></tr>
+          <tr><td>Reverse Lunges</td><td>15</td></tr>
+        </table>
+        <div class="note">Pause 1 second at the top of every inverted row — that's where the mid-trap/rhomboid work lives.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK HIT -->
+  <div class="panel" id="quick">
+    <div class="card open" style="--acc:var(--teal)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Quick Hit</div>
+          <div class="card-meta">Nights / free 10–15 min</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>Movement</th><th>Area</th></tr>
+          <tr><td>DB Curl</td><td>Biceps</td></tr>
+          <tr><td>DB Overhead Tricep Extension</td><td>Triceps</td></tr>
+          <tr><td>DB Lateral Raise</td><td>Side Delts</td></tr>
+          <tr><td>Leg Raises</td><td>Core</td></tr>
+        </table>
+        <div class="note">Dumbbell-only, low fatigue cost — built for the gap between a night shift and sleep.</div>
+        <div id="finisher-quick"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONDITIONING -->
+  <div class="panel" id="conditioning">
+    <div class="card open" style="--acc:var(--blue)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Running</div>
+          <div class="card-meta">Sprints + Zone 2</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>Protocol</th><th>Detail</th></tr>
+          <tr><td>Sprints</td><td>6–10 x 20–30s hard, full recovery between reps</td></tr>
+          <tr><td>Zone 2</td><td>30–45 min easy, conversational pace</td></tr>
+        </table>
+        <div class="note">Sprints slot in as an add-on after a short session or standalone. Zone 2 is the low-fatigue aerobic base — fine on a day either side of a strength session.</div>
+        <div class="log">
+          <div class="log-title">Log a run</div>
+          <div class="log-form">
+            <input type="date" id="run-date">
+            <select id="run-type"><option>Sprints</option><option>Zone 2</option></select>
+            <input type="text" id="run-dist" placeholder="Distance (km)">
+            <input type="text" id="run-time" placeholder="Time">
+            <button onclick="addLog('run')">Add</button>
+          </div>
+          <table id="run-log"><tr><th>Date</th><th>Type</th><th>Dist</th><th>Time</th><th></th></tr></table>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="--acc:var(--purple)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Rucking</div>
+          <div class="card-meta">Active recovery</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <div class="note">Treated as active recovery — no conflict with strength days. Load in the rucksack, easy pace, distance or time-based.</div>
+        <div class="log">
+          <div class="log-title">Log a ruck</div>
+          <div class="log-form">
+            <input type="date" id="ruck-date">
+            <input type="text" id="ruck-load" placeholder="Load (kg)">
+            <input type="text" id="ruck-dist" placeholder="Distance (km)">
+            <input type="text" id="ruck-time" placeholder="Time">
+            <button onclick="addLog('ruck')">Add</button>
+          </div>
+          <table id="ruck-log"><tr><th>Date</th><th>Load</th><th>Dist</th><th>Time</th><th></th></tr></table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleCard(card){
+  card.classList.toggle('open');
+}
+
+function toggleWU(evt, btn){
+  evt.stopPropagation();
+  const body = btn.nextElementSibling;
+  const open = body.classList.toggle('open');
+  btn.textContent = (open ? '▾' : '▸') + btn.textContent.slice(1);
+}
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Optional finisher — pick ONE
+const finisherOptions = [
+  {name:'Farmers Carry', sub:'Bilateral only'},
+  {name:'Lateral Raises', sub:'Side delts'},
+  {name:'Calf Raises', sub:'Bodyweight or loaded'}
+];
+
+function buildFinisher(containerId){
+  const el = document.getElementById(containerId);
+  el.innerHTML = `
+    <div class="finisher-box">
+      <div class="finisher-title">Optional Finisher — Pick One</div>
+      <div class="finisher-sub">Not required. Add it if you've got 3–5 minutes left in the tank.</div>
+      <div class="finisher-options">
+        ${finisherOptions.map((f,i)=>`
+          <div class="fin-opt" data-idx="${i}" onclick="pickFinisher(this)">
+            ${f.name}<small>${f.sub}</small>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+function pickFinisher(el){
+  el.parentElement.querySelectorAll('.fin-opt').forEach(o=>o.classList.remove('picked'));
+  el.classList.add('picked');
+}
+buildFinisher('finisher-total');
+buildFinisher('finisher-quick');
+buildFinisher('finisher-upper');
+buildFinisher('finisher-upper-emom');
+buildFinisher('finisher-lower');
+buildFinisher('finisher-lower-emom');
+
+// Running / Rucking log — persisted in this browser via localStorage
+function loadLog(key){
+  try{ return JSON.parse(localStorage.getItem(key)) || []; }catch(e){ return []; }
+}
+function saveLog(key, rows){ localStorage.setItem(key, JSON.stringify(rows)); }
+
+function renderLog(kind){
+  const rows = loadLog(kind);
+  const table = document.getElementById(kind+'-log');
+  const headerRow = table.rows[0];
+  table.innerHTML = '';
+  table.appendChild(headerRow);
+  rows.forEach((r, i)=>{
+    const tr = document.createElement('tr');
+    if(kind==='run'){
+      tr.innerHTML = `<td>${r.date||''}</td><td>${r.type||''}</td><td>${r.dist||''}</td><td>${r.time||''}</td><td class="log-del" onclick="deleteLog('run',${i})">✕</td>`;
+    } else {
+      tr.innerHTML = `<td>${r.date||''}</td><td>${r.load||''}</td><td>${r.dist||''}</td><td>${r.time||''}</td><td class="log-del" onclick="deleteLog('ruck',${i})">✕</td>`;
+    }
+    table.appendChild(tr);
+  });
+}
+
+function addLog(kind){
+  const rows = loadLog(kind);
+  if(kind==='run'){
+    rows.push({
+      date: document.getElementById('run-date').value,
+      type: document.getElementById('run-type').value,
+      dist: document.getElementById('run-dist').value,
+      time: document.getElementById('run-time').value
+    });
+  } else {
+    rows.push({
+      date: document.getElementById('ruck-date').value,
+      load: document.getElementById('ruck-load').value,
+      dist: document.getElementById('ruck-dist').value,
+      time: document.getElementById('ruck-time').value
+    });
+  }
+  saveLog(kind, rows);
+  renderLog(kind);
+}
+
+function deleteLog(kind, idx){
+  const rows = loadLog(kind);
+  rows.splice(idx,1);
+  saveLog(kind, rows);
+  renderLog(kind);
+}
+
+renderLog('run');
+renderLog('ruck');
+</script>
+</body>
+</html>
