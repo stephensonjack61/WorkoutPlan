@@ -191,15 +191,42 @@
   <div class="sub">Busy shifts. Young kids. No excuses.</div>
 
   <div class="tabs">
-    <button class="tab-btn active" style="--tc:var(--orange)" data-tab="total">Total Body</button>
+    <button class="tab-btn active" style="--tc:var(--orange)" data-tab="blueprint">Blueprint</button>
+    <button class="tab-btn" style="--tc:var(--orange)" data-tab="total">Total Body</button>
     <button class="tab-btn" style="--tc:var(--blue)" data-tab="split">Upper / Lower</button>
     <button class="tab-btn" style="--tc:var(--green)" data-tab="cindy">Cindy</button>
     <button class="tab-btn" style="--tc:var(--teal)" data-tab="quick">Quick Hit</button>
     <button class="tab-btn" style="--tc:var(--red)" data-tab="conditioning">Conditioning</button>
+    <button class="tab-btn" style="--tc:var(--yellow)" data-tab="rope">Jump Rope</button>
+  </div>
+
+  <!-- BLUEPRINT -->
+  <div class="panel active" id="blueprint">
+    <div class="card open" style="--acc:var(--orange)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">The 6-Block Session</div>
+          <div class="card-meta">Every session · 45–60 min · 3–5x/week · after Eugene Teo</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>#</th><th>Block</th><th>Time</th><th>Your tools</th></tr>
+          <tr><td>1</td><td>Plyometrics</td><td>3–5 min</td><td>Jump rope bounces, pogo hops, low box jumps — springy, not tiring</td></tr>
+          <tr><td>2</td><td>Power</td><td>~5 min</td><td>KB swings, jump squats, explosive pull-ups, clean &amp; press — fast, fresh, low reps</td></tr>
+          <tr><td>3</td><td>Strength</td><td>10–15 min</td><td>Heaviest work: vest-weighted pull-ups/dips, Bulgarian split squat, DB deadlift</td></tr>
+          <tr><td>4</td><td>Hypertrophy</td><td>15–20 min</td><td>The supersets and volume work — existing Upper/Lower sessions live here</td></tr>
+          <tr><td>5</td><td>Mobility</td><td>~5 min</td><td>Rotation is non-negotiable: band woodchoppers, thoracic rotations, cossack squat, dead hang</td></tr>
+          <tr><td>6</td><td>The EDC <span class="alt">or</span> Cardio</td><td>5–10 min</td><td>Either: farmer's + suitcase carries for time — or rope intervals / ruck / run. Both optional, pick what the day needs</td></tr>
+        </table>
+        <div class="note">From <a href="https://www.youtube.com/watch?v=B_FmckL2kBc" style="color:var(--orange)">Eugene Teo's hybrid bodybuilding template</a>. The order is the point: springy and fast while the nervous system is fresh, heavy next, pump work after, stretch while warm, engine or carries last. Block 6 is a choice: EDC carries if the day has no other conditioning, cardio if you want the engine work — or both when there's time. Short on time? 30 min = blocks 1-2-3-5. 15 min = blocks 1+5 plus rope. How the rest of the program maps: The 300 and Cindy are benchmark circuits that cover blocks 2–4 and 6 in one hit — bookend them with block 1 before and block 5 after. The rope EMOMs, Quick Hit and rope sessions are standalone block-4/block-6 work for nights and kid days. Zone 2, rucking and sprints are block 6 moved to its own day.</div>
+      </div>
+    </div>
   </div>
 
   <!-- TOTAL BODY -->
-  <div class="panel active" id="total">
+  <div class="panel" id="total">
     <div class="card open" style="--acc:var(--orange)">
       <div class="card-head" onclick="toggleCard(this.parentElement)">
         <div>
@@ -212,6 +239,7 @@
         <div class="wu-wrap">
           <button class="wu-btn" onclick="toggleWU(event,this)">▸ Warm-up (5–6 min)</button>
           <div class="wu-body">
+            <div class="wu-item"><span class="wu-ex">Jump rope (easy bounce)</span><span class="wu-spec">2–3 min · optional</span></div>
             <div class="wu-item"><span class="wu-ex">Dead hang</span><span class="wu-spec">2 x 20 sec</span></div>
             <div class="wu-item"><span class="wu-ex">Scapular pull-ups</span><span class="wu-spec">10 reps</span></div>
             <div class="wu-item"><span class="wu-ex">Band pull-aparts</span><span class="wu-spec">15 reps</span></div>
@@ -230,16 +258,16 @@
           <span class="tag">Horizontal Pull</span>
         </div>
         <table>
-          <tr><th>#</th><th>Movement</th><th>Reps</th><th>Pattern</th></tr>
-          <tr><td>1</td><td>Pull-ups</td><td>25</td><td>Vertical Pull</td></tr>
-          <tr><td>2</td><td>DB Deadlift <span class="alt">(alt: KB Swing)</span></td><td>50</td><td>Hinge</td></tr>
-          <tr><td>3</td><td>Push-ups</td><td>50</td><td>Horizontal Push</td></tr>
-          <tr><td>4</td><td>Box Jumps <span class="alt">(alt: Goblet Squat + vest / Jump Squat)</span></td><td>50</td><td>Squat/Power</td></tr>
-          <tr><td>5</td><td>Floor Wipers <span class="alt">(alt: Leg Raises)</span></td><td>50</td><td>Core</td></tr>
-          <tr><td>6</td><td>Ring Inverted Rows</td><td>50</td><td>Horizontal Pull</td></tr>
-          <tr><td>7</td><td>Ring Push-ups <span class="alt">(alt: Clean & Press)</span></td><td>25</td><td>Horizontal/Vertical Push</td></tr>
+          <tr><th>#</th><th>Movement</th><th>Reps</th><th>Block</th></tr>
+          <tr><td>1</td><td>Box Jumps <span class="alt">(alt: Jump Squat)</span></td><td>50</td><td>Power</td></tr>
+          <tr><td>2</td><td>Clean & Press</td><td>25</td><td>Power</td></tr>
+          <tr><td>3</td><td>Pull-ups</td><td>25</td><td>Strength · Vertical Pull</td></tr>
+          <tr><td>4</td><td>DB Deadlift <span class="alt">(alt: KB Swing)</span></td><td>50</td><td>Strength · Hinge</td></tr>
+          <tr><td>5</td><td>Push-ups</td><td>50</td><td>Volume · Horizontal Push</td></tr>
+          <tr><td>6</td><td>Ring Inverted Rows</td><td>50</td><td>Volume · Horizontal Pull</td></tr>
+          <tr><td>7</td><td>Floor Wipers <span class="alt">(alt: Leg Raises / Ab Wheel)</span></td><td>50</td><td>Core</td></tr>
         </table>
-        <div class="note">Straight sets, top to bottom, 300 reps total. Track total time — beat it next time. That's your progression metric. Goblet squat is always loaded with the weighted vest.</div>
+        <div class="note">Reordered to the template logic: a full power block first while fresh (box jumps, then clean &amp; press — keep it snappy, it's a power move now, not a grinder), heavy pulling and hinging next, push/pull volume after, core last — so your trunk isn't cooked before deadlifts. Straight sets, top to bottom, 300 reps total. Track total time — beat it next time. Note: this order resets your benchmark; old times aren't comparable. Template mapping: the circuit covers blocks 2–4 + 6 in one hit — prime with 2–3 min of rope (block 1) before, close with rotation mobility (block 5) after. Goblet squat + vest remains the box jump alternative if your knees or the floor complain, loaded with the weighted vest as always.</div>
         <div id="finisher-total"></div>
       </div>
     </div>
@@ -259,6 +287,7 @@
         <div class="wu-wrap">
           <button class="wu-btn" onclick="toggleWU(event,this)">▸ Warm-up (5 min)</button>
           <div class="wu-body">
+            <div class="wu-item"><span class="wu-ex">Jump rope (easy bounce)</span><span class="wu-spec">2–3 min · optional</span></div>
             <div class="wu-item"><span class="wu-ex">Dead hang</span><span class="wu-spec">2 x 20 sec</span></div>
             <div class="wu-item"><span class="wu-ex">Scapular pull-ups</span><span class="wu-spec">10 reps</span></div>
             <div class="wu-item"><span class="wu-ex">Band pull-aparts</span><span class="wu-spec">2 x 15</span></div>
@@ -267,13 +296,16 @@
           </div>
         </div>
         <table>
-          <tr><th>Superset</th><th>A</th><th>B</th><th>Sets</th></tr>
-          <tr><td>1</td><td>Pull-ups</td><td>Dips</td><td>2</td></tr>
-          <tr><td>2</td><td>Ring Rows</td><td>Pike Push-up</td><td>2</td></tr>
-          <tr><td>3</td><td>Ring Face Pull</td><td>Ring Push-up</td><td>2</td></tr>
+          <tr><th>Block</th><th>Work</th><th>Dose</th></tr>
+          <tr><td>1 · Plyo</td><td>Jump rope</td><td>2–3 min</td></tr>
+          <tr><td>2 · Power</td><td>Clean &amp; Press <span class="alt">(DB or KB)</span></td><td>1 warm + 2 working</td></tr>
+          <tr><td>3 · Strength</td><td>Pull-ups + Dips</td><td>1 warm + 2 working each</td></tr>
+          <tr><td>4 · Hypertrophy</td><td>Inverted Row supersets</td><td>2 supersets</td></tr>
+          <tr><td>4 · Hypertrophy</td><td>Farmer's Carry superset Lateral Raise</td><td>2 sets</td></tr>
+          <tr><td>5 · Mobility</td><td>Dead hang <span class="alt">(alt: hollow active hang)</span> superset Ab Wheel rollout</td><td>2 sets each</td></tr>
+          <tr><td>6 · EDC or Cardio</td><td>Optional: The EDC carries — or rope intervals / ruck / run</td><td>as time allows</td></tr>
         </table>
-        <div class="note">2 sets per superset. Push paired with pull each round. Straight through, minimal rest between the pair, rest at the end of each superset before moving to the next.</div>
-        <div id="finisher-upper"></div>
+        <div class="note">Clean &amp; press is the power block — keep it fast and crisp, working sets stop well short of grinding. Warm-up sets are light and count toward groove, not fatigue. Hangs paired with ab wheel close the session as loaded mobility + trunk. Block 6 is your pick: carries or cardio, whichever the day needs.</div>
       </div>
     </div>
     <div class="card" style="--acc:var(--teal)">
@@ -288,6 +320,7 @@
         <div class="wu-wrap">
           <button class="wu-btn" onclick="toggleWU(event,this)">▸ Warm-up (5 min)</button>
           <div class="wu-body">
+            <div class="wu-item"><span class="wu-ex">Jump rope (easy bounce)</span><span class="wu-spec">2–3 min · optional</span></div>
             <div class="wu-item"><span class="wu-ex">Dead hang</span><span class="wu-spec">2 x 20 sec</span></div>
             <div class="wu-item"><span class="wu-ex">Scapular pull-ups</span><span class="wu-spec">10 reps</span></div>
             <div class="wu-item"><span class="wu-ex">Band pull-aparts</span><span class="wu-spec">2 x 15</span></div>
@@ -311,23 +344,30 @@
         <div class="wu-wrap">
           <button class="wu-btn" onclick="toggleWU(event,this)">▸ Warm-up (5 min)</button>
           <div class="wu-body">
+            <div class="wu-item"><span class="wu-ex">Jump rope (easy bounce)</span><span class="wu-spec">2 min</span></div>
             <div class="wu-item"><span class="wu-ex">Leg swings (front + side)</span><span class="wu-spec">10 each</span></div>
-            <div class="wu-item"><span class="wu-ex">Hip circles</span><span class="wu-spec">10 each direction</span></div>
-            <div class="wu-item"><span class="wu-ex">Reverse lunge (BW)</span><span class="wu-spec">8 each leg</span></div>
-            <div class="wu-item"><span class="wu-ex">Good mornings (BW)</span><span class="wu-spec">12 reps</span></div>
+            <div class="wu-item"><span class="wu-ex">Dynamic hip flexor stretch</span><span class="wu-spec">8 each side</span></div>
             <div class="wu-item"><span class="wu-ex">Glute bridge</span><span class="wu-spec">15 reps</span></div>
           </div>
         </div>
         <table>
-          <tr><th>Movement</th><th>Pattern</th><th>Sets</th></tr>
-          <tr><td>Bulgarian Split Squat <span class="alt">(alt: Goblet Squat + vest)</span></td><td>Lunge</td><td>2</td></tr>
-          <tr><td>Step-up</td><td>Lunge</td><td>2</td></tr>
-          <tr><td>Reverse Lunge</td><td>Lunge</td><td>2</td></tr>
-          <tr><td>KB Swing</td><td>Hinge</td><td>2</td></tr>
-          <tr><td>Carries</td><td>Loaded Carry</td><td>2</td></tr>
+          <tr><th>Block</th><th>Work</th><th>Dose</th></tr>
+          <tr><td>1 · Plyo</td><td>Jump rope / pogos · Box Jumps (24")</td><td>aiming for 50 reps</td></tr>
+          <tr><td>2 · Power</td><td>KB Swing <span class="alt">(alt: Jump Squat)</span></td><td>1 warm + 2 working</td></tr>
+          <tr><td>3 · Strength</td><td>Goblet Squat superset Stiff-Leg Deadlift</td><td>2 sets</td></tr>
+          <tr><td>4 · Hypertrophy</td><td>Reverse Lunge superset DB Calf Raise</td><td>2 sets</td></tr>
+          <tr><td>5 · Mobility</td><td>Weighted Step-ups 24" <span class="alt">(alt: weighted step-overs)</span> · medial glute work · 90/90 hip rotations</td><td>2 sets each</td></tr>
+          <tr><td>6 · EDC or Cardio</td><td>Optional: The EDC carries — or rope intervals / ruck / run</td><td>as time allows</td></tr>
         </table>
-        <div class="note">2 sets per movement. Lunge variations rotate through the session; KB swing covers the hinge element.</div>
-        <div id="finisher-lower"></div>
+        <div class="note">Box jumps carry the plyo volume — step down every rep, never bounce off the landing. KB swings stay fast and fresh in the power block; the squat/stiff-leg pairing hits both ends of the hinge-squat spectrum in one superset. Step-ups sit in mobility as loaded control work, not a strength set — go slow and own the top. Block 6 only when time and energy allow.</div>
+        <div class="finisher-box">
+          <div class="finisher-title">Optional Finisher</div>
+          <div class="finisher-sub">Not required. Add it if you've got 3–5 minutes left.</div>
+          <div class="finisher-options">
+            <div class="fin-opt" onclick="pickFinisher(this)">Lateral Raises<small>Side delts</small></div>
+            <div class="fin-opt" onclick="pickFinisher(this)">Toes to Bar<small>alt: Leg Raises</small></div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="card" style="--acc:var(--red)">
@@ -342,10 +382,9 @@
         <div class="wu-wrap">
           <button class="wu-btn" onclick="toggleWU(event,this)">▸ Warm-up (5 min)</button>
           <div class="wu-body">
+            <div class="wu-item"><span class="wu-ex">Jump rope (easy bounce)</span><span class="wu-spec">2 min</span></div>
             <div class="wu-item"><span class="wu-ex">Leg swings (front + side)</span><span class="wu-spec">10 each</span></div>
-            <div class="wu-item"><span class="wu-ex">Hip circles</span><span class="wu-spec">10 each direction</span></div>
-            <div class="wu-item"><span class="wu-ex">Reverse lunge (BW)</span><span class="wu-spec">8 each leg</span></div>
-            <div class="wu-item"><span class="wu-ex">Good mornings (BW)</span><span class="wu-spec">12 reps</span></div>
+            <div class="wu-item"><span class="wu-ex">Dynamic hip flexor stretch</span><span class="wu-spec">8 each side</span></div>
             <div class="wu-item"><span class="wu-ex">Glute bridge</span><span class="wu-spec">15 reps</span></div>
           </div>
         </div>
@@ -370,9 +409,9 @@
           <tr><th>Movement</th><th>Reps</th></tr>
           <tr><td>Pull-ups</td><td>5</td></tr>
           <tr><td>Push-ups</td><td>10</td></tr>
-          <tr><td>Reverse Lunges <span class="alt">(alt: Squats)</span></td><td>15</td></tr>
+          <tr><td>Squats <span class="alt">(alt: Reverse Lunges)</span></td><td>15</td></tr>
         </table>
-        <div class="note">As many rounds as possible in 20 minutes. Score it every time — this is your tracked benchmark.</div>
+        <div class="note">As many rounds as possible in 20 minutes. Score it every time — this is your tracked benchmark. Template mapping: covers blocks 4 + 6 — rope for 2–3 min before, rotation mobility after.</div>
       </div>
     </div>
     <div class="card" style="--acc:var(--yellow)">
@@ -388,7 +427,7 @@
           <tr><th>Movement</th><th>Reps</th></tr>
           <tr><td>Ring Inverted Rows</td><td>5</td></tr>
           <tr><td>Push-ups</td><td>10</td></tr>
-          <tr><td>Reverse Lunges</td><td>15</td></tr>
+          <tr><td>KB Swings <span class="alt">(alt: Reverse Lunges)</span></td><td>15</td></tr>
         </table>
         <div class="note">Pause 1 second at the top of every inverted row — that's where the mid-trap/rhomboid work lives.</div>
       </div>
@@ -411,7 +450,7 @@
           <tr><td>DB Curl</td><td>Biceps</td></tr>
           <tr><td>DB Overhead Tricep Extension</td><td>Triceps</td></tr>
           <tr><td>DB Lateral Raise</td><td>Side Delts</td></tr>
-          <tr><td>Leg Raises</td><td>Core</td></tr>
+          <tr><td>Leg Raises <span class="alt">(alt: Ab Wheel)</span></td><td>Core</td></tr>
         </table>
         <div class="note">Dumbbell-only, low fatigue cost — built for the gap between a night shift and sleep.</div>
         <div id="finisher-quick"></div>
@@ -431,11 +470,12 @@
       </div>
       <div class="card-body">
         <table>
-          <tr><th>Protocol</th><th>Detail</th></tr>
-          <tr><td>Sprints</td><td>6–10 x 20–30s hard, full recovery between reps</td></tr>
-          <tr><td>Zone 2</td><td>30–45 min easy, conversational pace</td></tr>
+          <tr><th>Phase</th><th>Weeks</th><th>Detail</th></tr>
+          <tr><td>A · Walk-run</td><td>1–4</td><td>25–30 min: run 1 min easy / walk 90s, x8–10. Build toward run 3 / walk 1. 2–3x/week</td></tr>
+          <tr><td>B · Continuous</td><td>5–8</td><td>20–30 min unbroken easy pace + strides (4 x 15s fast-but-relaxed) after one run a week</td></tr>
+          <tr><td>Zone 2</td><td>ongoing</td><td>30–45 min conversational — the base under everything</td></tr>
         </table>
-        <div class="note">Sprints slot in as an add-on after a short session or standalone. Zone 2 is the low-fatigue aerobic base — fine on a day either side of a strength session.</div>
+        <div class="note">Complete-novice progression — the classic mistake is running too fast too soon. Every Phase A–B run should be conversational; if you can't speak a sentence, slow down. This card is the aerobic engine only — sprinting is its own practice with its own card below. DISTANCE CEILING: ~10k / 60 min is the max this program ever asks for. The goal is Hyrox-style fitness and growing Zone 2 time, not racing distance — progress is measured in comfortable minutes, not kilometres. (Hyrox is 8 x 1km, so a 10k ceiling more than covers it.) If you've never enjoyed running, odds are you've only run too fast — every easy run here should feel almost boringly comfortable. Half marathon stays an option someday if you surprise yourself, but nothing here trains toward it. IMPACT BUDGET: easy running and jump rope both load the calves and shins — treat them as one bucket. While run volume is building, keep the rope volume cap and don't ramp both in the same week. One new impact stressor at a time.</div>
         <div class="log">
           <div class="log-title">Log a run</div>
           <div class="log-form">
@@ -447,6 +487,58 @@
           </div>
           <table id="run-log"><tr><th>Date</th><th>Type</th><th>Dist</th><th>Time</th><th></th></tr></table>
         </div>
+      </div>
+    </div>
+    <div class="card" style="--acc:var(--orange)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Sprints — Hill First</div>
+          <div class="card-meta">Own track, separate from running · 1–2x/week</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>Phase</th><th>Weeks</th><th>Detail</th></tr>
+          <tr><td>1 · Learn</td><td>1–3</td><td>4 x ~8s uphill at 60–70% effort. Walk down + stand until fully recovered (2+ min). 1x/week</td></tr>
+          <tr><td>2 · Build</td><td>4–8</td><td>5–6 x 10s uphill at 80–85%. Full recovery. 1–2x/week</td></tr>
+          <tr><td>3 · Sharpen</td><td>9+</td><td>6–8 x 10–15s uphill at 90%+, or transition to flat: 4–6 accelerations building over 30–40m</td></tr>
+        </table>
+        <div class="note">Watch: <a href="https://www.youtube.com/watch?v=REubPnx77E8" style="color:var(--orange)">Beginner's guide to hill sprints (Bodyweight Muscle)</a> and <a href="https://www.youtube.com/watch?v=QLBT4-iN2yg" style="color:var(--orange)">why sprint at all (Mover's Odyssey)</a>. This is a POWER practice, not conditioning — it lives in blocks 1–2 of the template, done fresh, never to failure. Stop the session the moment speed or form drops. Why hills: the slope forces good mechanics (forward lean, high knee drive), shortens the stride so hamstrings can't overreach, and softens impact — which is why this track can start NOW, alongside walk-run Phase A and rope, without blowing the impact budget. Flat sprinting waits until Phase 3. Rules: full warm-up plus strides first, 48h+ after heavy leg work, and never the day after nights.</div>
+      </div>
+    </div>
+    <div class="card" style="--acc:var(--red)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Hyrox-Ready</div>
+          <div class="card-meta">The goal · engine + stations · every 1–2 weeks</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>Structure</th><th>Detail</th></tr>
+          <tr><td>Runs</td><td>4–6 x 400–800m at honest-but-sustainable pace</td></tr>
+          <tr><td>Station between each run — rotate</td><td>10 burpee broad jumps · 20 walking lunges + vest · 40s heavy farmer carry · 15 KB thrusters · 20 KB swings</td></tr>
+        </table>
+        <div class="note">The goal: fit enough to do a Hyrox without ever entering one. Hyrox is 8 x 1km runs alternating with stations (sled, carries, sandbag lunges, wall balls, burpees, row/ski) — your program already covers the strength half with vest lunges, KB swings and daily carries. The missing skill is COMPROMISED RUNNING: running on legs that are already working. Don't start this until running Phase B is comfortable; then run it every 1–2 weeks in place of a sprint day and score total time. Zone 2 base + this session = a Hyrox-shaped engine.</div>
+      </div>
+    </div>
+    <div class="card" style="--acc:var(--green)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">The EDC</div>
+          <div class="card-meta">Every Day Carry · daily add-on</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>Movement</th><th>Sets</th></tr>
+          <tr><td>Farmer's Carry (both hands)</td><td>2 x 30–45s</td></tr>
+          <tr><td>Suitcase Carry (one hand, swap)</td><td>2 x 30s each side</td></tr>
+        </table>
+        <div class="note">Done every day or nearly every day, on top of whatever else the day holds. All carries are for TIME, not distance — small gym and garden, so the clock is the honest measure. Progress by adding seconds first, then load. The suitcase carry is the quiet gem — one-sided load forces the trunk to resist side-bend, so it's core work disguised as carrying shopping. Grip, traps, posture, core, all in ~5 minutes. This replaces the old farmers carry finisher.</div>
       </div>
     </div>
     <div class="card" style="--acc:var(--purple)">
@@ -474,6 +566,147 @@
     </div>
   </div>
 
+  <!-- JUMP ROPE -->
+  <div class="panel" id="rope">
+
+    <div class="card open" style="--acc:var(--yellow)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Rope Setup</div>
+          <div class="card-meta">Sized for 193–194 cm · read first</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>Rope</th><th>Job</th><th>Length</th></tr>
+          <tr><td>Elite Jumps beaded</td><td>Learning · rhythm feedback</td><td>Full 10 ft — don't trim yet</td></tr>
+          <tr><td>Cardio 2.0 Weighted (1/4lb)</td><td>Conditioning · outdoor OK</td><td>Full 10 ft — don't trim yet</td></tr>
+        </table>
+        <div class="note">Both are 10 ft adjustable cords — at your height that's right at spec, so start both at full length. Beginner check: stand on the middle of the rope, handles should reach armpit height, and the rope should clear your head by 25–45 cm while jumping. Good news on the Cardio 2.0 Weighted: the ~130g / 6mm PVC cord is beginner-friendly — the extra weight slows rotation and lets you feel where the rope is, like the beads do. So use either from day one: beaded indoors (best feedback, but beads chew up on rough ground), weighted PVC outdoors (fair warning — it stings more on misses). After 3–4 weeks of consistent timing, shorten both gradually — beads out one or two at a time, PVC trimmed — until handles hit mid-chest. Never cut early; you can't add length back. Jump on a mat, wood or rubber, not bare concrete (better for your calves and the cords).</div>
+      </div>
+    </div>
+
+    <div class="card" style="--acc:var(--green)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Phase 1 — Learn the Bounce</div>
+          <div class="card-meta">Weeks 1–2 · 10 min · daily OK</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <span class="tag">Skill</span>
+          <span class="tag">Low fatigue</span>
+          <span class="tag">Kid days / post-nights</span>
+        </div>
+        <table>
+          <tr><th>Drill</th><th>Dose</th></tr>
+          <tr><td>No-rope bounce (to music/beat)</td><td>3 x 30s</td></tr>
+          <tr><td>Side swing (both handles one side)</td><td>10 each side</td></tr>
+          <tr><td>Swing & catch (rope over, trap under feet)</td><td>10 reps</td></tr>
+          <tr><td>Single jump & reset</td><td>10 reps</td></tr>
+          <tr><td>Max consecutive bounces</td><td>5 attempts</td></tr>
+        </table>
+        <div class="note">These drills mirror Lauren's beginner video (linked in Study Material) — watch it first, then run this as your checklist. Form cues: jump 3–5 cm off the floor, land on the balls of your feet with soft knees, elbows pinned to your ribs, hands just in front of your hips, spin from the wrists — not the shoulders. Eyes ahead, not down. Exit test: 25 unbroken bounces. Calves adapt slower than lungs — if they're sore, take a day. That soreness IS the adaptation window for injury, don't push through it.</div>
+      </div>
+    </div>
+
+    <div class="card" style="--acc:var(--blue)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Phase 2 — Build the Engine</div>
+          <div class="card-meta">Weeks 3–4 · 10–15 min · 3–4x/week</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>Block</th><th>Dose</th></tr>
+          <tr><td>Basic bounce intervals</td><td>30s on / 30s off x 6–10</td></tr>
+          <tr><td>Alternate-foot drill (no rope first)</td><td>3 x 20s</td></tr>
+          <tr><td>Max unbroken test (end of session)</td><td>1 attempt, log it</td></tr>
+        </table>
+        <div class="note">Misses are part of the rep — reset and keep the clock running. Progress the intervals before the pace: add rounds, then trim rest to 20s, then 15s. Exit test: 100 unbroken bounces and 10 total minutes of jumping in one session. This is where the rope starts earning its place as a warm-up — 2–3 easy minutes before any Hevy session replaces nothing, it just primes calves, ankles and shoulders.</div>
+      </div>
+    </div>
+
+    <div class="card" style="--acc:var(--purple)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Phase 3 — Make It a Weapon</div>
+          <div class="card-meta">Week 5+ · conditioning tool unlocked</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>Session</th><th>Detail</th></tr>
+          <tr><td>Rope EMOM</td><td>Odd: 40s jumping · Even: rest or KB swings, 10–16 min</td></tr>
+          <tr><td>Intervals</td><td>60s on / 30s off x 8–12</td></tr>
+          <tr><td>Freestyle Zone 2</td><td>10–20 min continuous, boxer skip pace</td></tr>
+        </table>
+        <div class="note">Learn the boxer skip (weight shifts side to side) and alternate-foot step early in this phase — they halve the impact per leg and are what make 15+ minute sessions sustainable. The weighted Cardio 2.0 shines here — the 1/4lb adds real conditioning load over long intervals; keep the beaded rope for learning new footwork (side swings, then criss-cross). Rope sessions sit in the same slot as Sprints/Zone 2 — hard intervals count as a sprint day, easy freestyle counts as Zone 2. Fine on kid days, between or after nights.</div>
+        <div class="log">
+          <div class="log-title">Log a rope session</div>
+          <div class="log-form">
+            <input type="date" id="rope-date">
+            <select id="rope-type"><option>Skill</option><option>Intervals</option><option>Freestyle</option><option>Warm-up</option></select>
+            <input type="text" id="rope-mins" placeholder="Minutes">
+            <input type="text" id="rope-best" placeholder="Best unbroken">
+            <button onclick="addLog('rope')">Add</button>
+          </div>
+          <table id="rope-log"><tr><th>Date</th><th>Type</th><th>Mins</th><th>Best</th><th></th></tr></table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="--acc:var(--red)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Stay Unbroken</div>
+          <div class="card-meta">Injury prevention · non-negotiable</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>Rule</th><th>Detail</th></tr>
+          <tr><td>Surface</td><td>Mat, wood or rubber — never bare concrete</td></tr>
+          <tr><td>Land quiet</td><td>Balls of feet, soft knees, 3–5 cm hops. If you can hear your landings, they're too hard</td></tr>
+          <tr><td>Calf prep</td><td>Calf raises 2 x 15 on non-rope days (already a finisher option — pick it)</td></tr>
+          <tr><td>Stretch after</td><td>Calf stretch (straight + bent knee) 2 x 30s each side post-session</td></tr>
+          <tr><td>48h rule</td><td>Shin or calf PAIN (not soreness) = 48h off the rope. Ruck or Zone 2 instead</td></tr>
+          <tr><td>Volume cap</td><td>Don't add more than ~5 min of jumping per week</td></tr>
+        </table>
+        <div class="note">Watch: <a href="https://www.youtube.com/watch?v=R-_CQpxWJqk" style="color:var(--red)">How To Avoid Pain &amp; Injury — Lauren Jumps (Start Here Pt. 5)</a>. Shin splints are the classic beginner exit — they come from concrete, heavy landings, tight calves and ramping volume too fast, and ignored they progress toward stress fractures. At 190+ cm every landing carries more force than it does for smaller jumpers, so these rules matter more for you, not less. General soreness is fine and expected; sharp or localized shin pain is a stop sign.</div>
+      </div>
+    </div>
+
+    <div class="card" style="--acc:var(--teal)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Study Material</div>
+          <div class="card-meta">Watch before session one</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>Watch</th><th>Use for</th></tr>
+          <tr><td><a href="https://www.youtube.com/watch?v=3dwMzERxpRw" style="color:var(--teal)">How To Jump Rope For Beginners — Lauren Jumps</a></td><td>Session one — Phase 1 follows this</td></tr>
+          <tr><td><a href="https://www.youtube.com/playlist?list=PLp040-vWPWG5U0mMdCYdZlPgGEo_nUZga" style="color:var(--teal)">Start Here series — Lauren Jumps</a></td><td>Work through in order, one per week</td></tr>
+          <tr><td>Jump Rope Dudes</td><td>Basic bounce &amp; boxer skip tutorials</td></tr>
+          <tr><td>Movers Odyssey</td><td>Footwork &amp; flow once basics stick</td></tr>
+          <tr><td>The Bioneer</td><td>Why it's in the program</td></tr>
+        </table>
+        <div class="note">Ten minutes of watching beats an hour of guessing. Film yourself side-on once a week — the fault is almost always arms drifting wide (rope shortens, catches feet) or jumping too high.</div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 <script>
@@ -499,7 +732,7 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
 
 // Optional finisher — pick ONE
 const finisherOptions = [
-  {name:'Farmers Carry', sub:'Bilateral only'},
+  {name:'Band Woodchoppers', sub:'Rotation'},
   {name:'Lateral Raises', sub:'Side delts'},
   {name:'Calf Raises', sub:'Bodyweight or loaded'}
 ];
@@ -526,12 +759,10 @@ function pickFinisher(el){
 }
 buildFinisher('finisher-total');
 buildFinisher('finisher-quick');
-buildFinisher('finisher-upper');
 buildFinisher('finisher-upper-emom');
-buildFinisher('finisher-lower');
 buildFinisher('finisher-lower-emom');
 
-// Running / Rucking log — persisted in this browser via localStorage
+// Running / Rucking / Rope log — persisted in this browser via localStorage
 function loadLog(key){
   try{ return JSON.parse(localStorage.getItem(key)) || []; }catch(e){ return []; }
 }
@@ -547,6 +778,8 @@ function renderLog(kind){
     const tr = document.createElement('tr');
     if(kind==='run'){
       tr.innerHTML = `<td>${r.date||''}</td><td>${r.type||''}</td><td>${r.dist||''}</td><td>${r.time||''}</td><td class="log-del" onclick="deleteLog('run',${i})">✕</td>`;
+    } else if(kind==='rope'){
+      tr.innerHTML = `<td>${r.date||''}</td><td>${r.type||''}</td><td>${r.mins||''}</td><td>${r.best||''}</td><td class="log-del" onclick="deleteLog('rope',${i})">✕</td>`;
     } else {
       tr.innerHTML = `<td>${r.date||''}</td><td>${r.load||''}</td><td>${r.dist||''}</td><td>${r.time||''}</td><td class="log-del" onclick="deleteLog('ruck',${i})">✕</td>`;
     }
@@ -562,6 +795,13 @@ function addLog(kind){
       type: document.getElementById('run-type').value,
       dist: document.getElementById('run-dist').value,
       time: document.getElementById('run-time').value
+    });
+  } else if(kind==='rope'){
+    rows.push({
+      date: document.getElementById('rope-date').value,
+      type: document.getElementById('rope-type').value,
+      mins: document.getElementById('rope-mins').value,
+      best: document.getElementById('rope-best').value
     });
   } else {
     rows.push({
@@ -584,6 +824,7 @@ function deleteLog(kind, idx){
 
 renderLog('run');
 renderLog('ruck');
+renderLog('rope');
 </script>
 </body>
 </html>
