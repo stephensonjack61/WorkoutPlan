@@ -202,6 +202,27 @@
 
   <!-- BLUEPRINT -->
   <div class="panel active" id="blueprint">
+    <div class="card" style="--acc:var(--green)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">Why</div>
+          <div class="card-meta">The five goals · everything below serves these</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <table>
+          <tr><th>#</th><th>Goal</th><th>What delivers it</th></tr>
+          <tr><td>1</td><td>Cardiovascular fitness</td><td>Zone 2 base, rope intervals, Hyrox-Ready sessions</td></tr>
+          <tr><td>2</td><td>Longevity</td><td>Zone 2 + hill sprints (VO2max), strength, daily carries, mobility</td></tr>
+          <tr><td>3</td><td>Psychological — sleep, mood</td><td>Daily movement, morning sessions, rope as skill practice</td></tr>
+          <tr><td>4</td><td>Physique — upper back, chest, LEGS &amp; CALVES</td><td>Pulling volume, deficit ring push-ups, extra Upper/Lower splits when time allows, daily calves in the EDC</td></tr>
+          <tr><td>5</td><td>Functional strength</td><td>Carries, clean &amp; press, box jumps, loaded lunges, hangs</td></tr>
+          <tr><td>6</td><td>Lose weight</td><td>Mostly the kitchen — training protects muscle while it happens</td></tr>
+        </table>
+        <div class="note">On weight: no training plan out-trains the diet, so treat the sessions as what keeps the muscle while a modest food deficit does the fat loss. A slow deficit also protects goals 4 and 5 — aggressive cutting takes legs and strength with it. Goal 4 is the one with a live tension: legs and calves are the lagging area, and conditioning volume competes with leg growth. That means leg work gets protected — hard sets first in the session, never cut for time, and the running/rope stays genuinely easy so it doesn't eat the recovery legs need. Grip, calves and trunk get frequency (near-daily) because they tolerate it; squats and lunges get intensity, not frequency.</div>
+      </div>
+    </div>
     <div class="card open" style="--acc:var(--orange)">
       <div class="card-head" onclick="toggleCard(this.parentElement)">
         <div>
@@ -212,14 +233,15 @@
       </div>
       <div class="card-body">
         <table>
-          <tr><th>#</th><th>Block</th><th>Time</th><th>Your tools</th></tr>
-          <tr><td>1</td><td>Plyometrics</td><td>3–5 min</td><td>Jump rope bounces, pogo hops, low box jumps — springy, not tiring</td></tr>
-          <tr><td>2</td><td>Power</td><td>~5 min</td><td>KB swings, jump squats, explosive pull-ups, clean &amp; press — fast, fresh, low reps</td></tr>
-          <tr><td>3</td><td>Strength</td><td>10–15 min</td><td>Heaviest work: vest-weighted pull-ups/dips, Bulgarian split squat, DB deadlift</td></tr>
-          <tr><td>4</td><td>Hypertrophy</td><td>15–20 min</td><td>The supersets and volume work — existing Upper/Lower sessions live here</td></tr>
-          <tr><td>5</td><td>Mobility</td><td>~5 min</td><td>Rotation is non-negotiable: band woodchoppers, thoracic rotations, cossack squat, dead hang</td></tr>
-          <tr><td>6</td><td>The EDC <span class="alt">or</span> Cardio</td><td>5–10 min</td><td>Either: farmer's + suitcase carries for time — or rope intervals / ruck / run. Both optional, pick what the day needs</td></tr>
+          <tr><th>#</th><th>Block</th><th>Time</th><th>Rest</th><th>Your tools</th></tr>
+          <tr><td>1</td><td>Plyometrics</td><td>3–5 min</td><td>30–60s</td><td>Jump rope bounces, pogo hops, low box jumps — springy, not tiring</td></tr>
+          <tr><td>2</td><td>Power</td><td>~5 min</td><td>2 min</td><td>KB swings, jump squats, explosive pull-ups, clean &amp; press — fast, fresh, low reps</td></tr>
+          <tr><td>3</td><td>Strength</td><td>10–15 min</td><td>2–3 min</td><td>Heaviest work: vest-weighted pull-ups/dips, Bulgarian split squat, DB deadlift</td></tr>
+          <tr><td>4</td><td>Hypertrophy</td><td>15–20 min</td><td>60–90s</td><td>The supersets and volume work — existing Upper/Lower sessions live here</td></tr>
+          <tr><td>5</td><td>Mobility</td><td>~5 min</td><td>minimal</td><td>Rotation is non-negotiable: band woodchoppers, thoracic rotations, cossack squat, dead hang</td></tr>
+          <tr><td>6</td><td>The EDC <span class="alt">or</span> Cardio</td><td>5–10 min</td><td>45–60s</td><td>Either: farmer's + suitcase carries for time — or rope intervals / ruck / run. Both optional, pick what the day needs</td></tr>
         </table>
+        <div class="note" style="border-top:none;padding-top:0;"><span style="color:var(--orange);font-weight:600;">Rest, in one line —</span> the earlier the block, the longer the rest. Power and strength sets exist to be <em>good</em>, not tiring: if you're still breathing hard, you rested too little and the next set will be worse. Hypertrophy is the opposite — 60–90s is enough, and a bit of fatigue is the point. In supersets, 30–45s between the two movements, then a full rest before repeating the pair. On a tight day, cut sets before you cut rest.</div>
         <div class="note">From <a href="https://www.youtube.com/watch?v=B_FmckL2kBc" style="color:var(--orange)">Eugene Teo's hybrid bodybuilding template</a>. The order is the point: springy and fast while the nervous system is fresh, heavy next, pump work after, stretch while warm, engine or carries last. Block 6 is a choice: EDC carries if the day has no other conditioning, cardio if you want the engine work — or both when there's time. Short on time? 30 min = blocks 1-2-3-5. 15 min = blocks 1+5 plus rope. How the rest of the program maps: The 300 and Cindy are benchmark circuits that cover blocks 2–4 and 6 in one hit — bookend them with block 1 before and block 5 after. The rope EMOMs, Quick Hit and rope sessions are standalone block-4/block-6 work for nights and kid days. Zone 2, rucking and sprints are block 6 moved to its own day.</div>
       </div>
     </div>
@@ -227,7 +249,60 @@
 
   <!-- TOTAL BODY -->
   <div class="panel" id="total">
-    <div class="card open" style="--acc:var(--orange)">
+    <div class="card open" style="--acc:var(--purple)">
+      <div class="card-head" onclick="toggleCard(this.parentElement)">
+        <div>
+          <div class="card-title">The Pattern Day</div>
+          <div class="card-meta">Total body · every pattern · ~55 min</div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+      <div class="card-body">
+        <div class="wu-wrap">
+          <button class="wu-btn" onclick="toggleWU(event,this)">▸ Warm-up (5 min)</button>
+          <div class="wu-body">
+            <div class="wu-item"><span class="wu-ex">Jump rope (easy bounce)</span><span class="wu-spec">2 min</span></div>
+            <div class="wu-item"><span class="wu-ex">Band pull-aparts</span><span class="wu-spec">15 reps</span></div>
+            <div class="wu-item"><span class="wu-ex">Scapular pull-ups</span><span class="wu-spec">10 reps</span></div>
+            <div class="wu-item"><span class="wu-ex">Leg swings (front + side)</span><span class="wu-spec">10 each</span></div>
+            <div class="wu-item"><span class="wu-ex">Dynamic hip flexor stretch</span><span class="wu-spec">8 each side</span></div>
+            <div class="wu-item"><span class="wu-ex">Glute bridge</span><span class="wu-spec">15 reps</span></div>
+          </div>
+        </div>
+        <div>
+          <span class="tag">Squat</span>
+          <span class="tag">Hinge</span>
+          <span class="tag">Lunge</span>
+          <span class="tag">Vertical Push</span>
+          <span class="tag">Vertical Pull</span>
+          <span class="tag">Horizontal Push</span>
+          <span class="tag">Horizontal Pull</span>
+          <span class="tag">Carry</span>
+          <span class="tag">Rotation/Anti-rotation</span>
+          <span class="tag">Jump</span>
+        </div>
+        <table>
+          <tr><th>Block</th><th>Work</th><th>Dose</th><th>Rest</th><th>Pattern</th></tr>
+          <tr><td>1 · Plyo</td><td>Box Jumps 24" <span class="alt">(step down every rep)</span></td><td>3 x 5</td><td>45–60s</td><td>Jump</td></tr>
+          <tr><td>2 · Power</td><td>DB Clean &amp; Press <span class="alt">(alt: KB swing)</span></td><td>1 warm + 2 x 5</td><td>2 min</td><td>Hinge → Vert Push</td></tr>
+          <tr><td>3 · Strength A1</td><td>Weighted Pull-ups <span class="alt">(vest · pronated for now, neutral when grips arrive)</span></td><td>3 x 5</td><td>45s → A2</td><td>Vertical Pull</td></tr>
+          <tr><td>3 · Strength A2</td><td>Goblet / Front-Rack Squat</td><td>3 x 6–8</td><td>2 min → A1</td><td>Squat</td></tr>
+          <tr><td>3 · Strength B1</td><td>Weighted Dips <span class="alt">(vest)</span></td><td>2 x 6</td><td>45s → B2</td><td>Vertical Push</td></tr>
+          <tr><td>3 · Strength B2</td><td>DB Romanian Deadlift</td><td>2 x 8</td><td>2 min → B1</td><td>Hinge</td></tr>
+          <tr><td>4 · Hypertrophy</td><td>Ring Inverted Row <span class="alt">(1s pause at top)</span></td><td>2 x 10–12</td><td>60–90s</td><td>Horizontal Pull</td></tr>
+          <tr><td>4 · Hypertrophy</td><td>Deficit Ring Push-ups</td><td>2 x near-max</td><td>60–90s</td><td>Horizontal Push</td></tr>
+          <tr><td>4 · Hypertrophy</td><td>Bulgarian Split Squat <span class="alt">(alt: reverse lunge)</span></td><td>2 x 8–10 each</td><td>60–90s</td><td>Lunge</td></tr>
+          <tr><td>5 · Mobility/Core</td><td>Ab Wheel superset Dead Hang</td><td>2 x 8–10 · 2 x 30s</td><td>minimal</td><td>Anti-extension</td></tr>
+          <tr><td>5 · Mobility/Core</td><td>Band Woodchopper · 90/90 hip rotations</td><td>10 each side</td><td>minimal</td><td>Rotation</td></tr>
+          <tr><td>6 · EDC</td><td>Farmer's + Suitcase Carry + Calf Raises</td><td>2 sets each</td><td>45–60s</td><td>Carry</td></tr>
+        </table>
+        <div class="note">Ten patterns, one session, all from what's in the garage. Run block 3 as supersets — A1/A2 together, then B1/B2 — pull paired with legs so nothing competes. SHORT VERSION (~30 min): blocks 1, 2, 3A, 5. Progression: add vest load to pull-ups and dips before adding reps; add DB weight to squat and RDL; box stays 24" and gets more reps.</div>
+        <div class="note"><span style="color:var(--purple);font-weight:600;">Where it comes from —</span> <span style="color:var(--chalk)">Eugene Teo:</span> the 6-block order and the insistence that rotation never gets skipped. <span style="color:var(--chalk)"><a href="https://www.youtube.com/watch?v=w0UMVQD5ZC8" style="color:var(--chalk)">Lee Downing Keat:</a></span> weighted calisthenics as the engine of the strength block — vest on pull-ups and dips, progressed by load not endless reps; and the principle that a short, well-chosen routine beats a long one. <span style="color:var(--chalk)">The Bioneer:</span> loaded carries, hangs and grip as trainable qualities in their own right. <span style="color:var(--chalk)">AthleanX:</span> joint-friendly sequencing and the paused inverted row for scapular health rather than just rowing weight. <span style="color:var(--chalk)">Bodyweight Muscle:</span> vest-loaded bodyweight over machines, and box jumps you step down from — sustainable for a bloke in his thirties with a job and kids. <span style="color:var(--chalk)">Mover's Odyssey:</span> quality of movement over rep count — if the pattern degrades, the set is finished.</div>
+        <div class="note"><span style="color:var(--yellow);font-weight:600;">Grip note —</span> Angles90 sold. Pronated pull-ups are fine meanwhile; rings give you a neutral/rotating grip today if the elbows grumble, since the rings turn as you pull. Worth replacing with a neutral option eventually — it's easier on the elbows and lets you hold heavier vest loads.</div>
+      </div>
+    </div>
+
+    <div class="card" style="--acc:var(--orange)">
       <div class="card-head" onclick="toggleCard(this.parentElement)">
         <div>
           <div class="card-title">The 300</div>
@@ -267,7 +342,7 @@
           <tr><td>6</td><td>Ring Inverted Rows</td><td>50</td><td>Volume · Horizontal Pull</td></tr>
           <tr><td>7</td><td>Floor Wipers <span class="alt">(alt: Leg Raises / Ab Wheel)</span></td><td>50</td><td>Core</td></tr>
         </table>
-        <div class="note">Reordered to the template logic: a full power block first while fresh (box jumps, then clean &amp; press — keep it snappy, it's a power move now, not a grinder), heavy pulling and hinging next, push/pull volume after, core last — so your trunk isn't cooked before deadlifts. Straight sets, top to bottom, 300 reps total. Track total time — beat it next time. Note: this order resets your benchmark; old times aren't comparable. Template mapping: the circuit covers blocks 2–4 + 6 in one hit — prime with 2–3 min of rope (block 1) before, close with rotation mobility (block 5) after. Goblet squat + vest remains the box jump alternative if your knees or the floor complain, loaded with the weighted vest as always.</div>
+        <div class="note"><span style="color:var(--orange);font-weight:600;">Rest:</span> minimal by design — this is scored on total time, so rest only as long as needed to keep sets unbroken and safe. Break the big sets into chunks you can complete cleanly (e.g. 50 push-ups as 10x5) rather than grinding to failure and then resting twice as long. Reordered to the template logic: a full power block first while fresh (box jumps, then clean &amp; press — keep it snappy, it's a power move now, not a grinder), heavy pulling and hinging next, push/pull volume after, core last — so your trunk isn't cooked before deadlifts. Straight sets, top to bottom, 300 reps total. Track total time — beat it next time. Note: this order resets your benchmark; old times aren't comparable. Template mapping: the circuit covers blocks 2–4 + 6 in one hit — prime with 2–3 min of rope (block 1) before, close with rotation mobility (block 5) after. Goblet squat + vest remains the box jump alternative if your knees or the floor complain, loaded with the weighted vest as always.</div>
         <div id="finisher-total"></div>
       </div>
     </div>
@@ -296,16 +371,16 @@
           </div>
         </div>
         <table>
-          <tr><th>Block</th><th>Work</th><th>Dose</th></tr>
-          <tr><td>1 · Plyo</td><td>Jump rope</td><td>2–3 min</td></tr>
-          <tr><td>2 · Power</td><td>Clean &amp; Press <span class="alt">(DB or KB)</span></td><td>1 warm + 2 working</td></tr>
-          <tr><td>3 · Strength</td><td>Pull-ups + Dips</td><td>1 warm + 2 working each</td></tr>
-          <tr><td>4 · Hypertrophy</td><td>Inverted Row supersets</td><td>2 supersets</td></tr>
-          <tr><td>4 · Hypertrophy</td><td>Farmer's Carry superset Lateral Raise</td><td>2 sets</td></tr>
-          <tr><td>5 · Mobility</td><td>Dead hang <span class="alt">(alt: hollow active hang)</span> superset Ab Wheel rollout</td><td>2 sets each</td></tr>
-          <tr><td>6 · EDC or Cardio</td><td>Optional: The EDC carries — or rope intervals / ruck / run</td><td>as time allows</td></tr>
+          <tr><th>Block</th><th>Work</th><th>Dose</th><th>Rest</th></tr>
+          <tr><td>1 · Plyo</td><td>Jump rope</td><td>2–3 min</td><td>—</td></tr>
+          <tr><td>2 · Power</td><td>Clean &amp; Press <span class="alt">(DB or KB)</span></td><td>1 warm + 2 working</td><td>2 min</td></tr>
+          <tr><td>3 · Strength</td><td>Pull-ups + Dips</td><td>1 warm + 2 working each</td><td>2–3 min</td></tr>
+          <tr><td>4 · Hypertrophy</td><td>Inverted Row superset Deficit Ring Push-ups</td><td>2 supersets</td><td>60–90s</td></tr>
+          <tr><td>4 · Hypertrophy</td><td>Farmer's Carry superset Lateral Raise</td><td>2 sets</td><td>60–90s</td></tr>
+          <tr><td>5 · Mobility</td><td>Dead hang <span class="alt">(alt: hollow active hang)</span> superset Ab Wheel rollout</td><td>2 sets each</td><td>minimal</td></tr>
+          <tr><td>6 · EDC or Cardio</td><td>Optional: The EDC carries — or rope intervals / ruck / run</td><td>as time allows</td><td>45–60s</td></tr>
         </table>
-        <div class="note">Clean &amp; press is the power block — keep it fast and crisp, working sets stop well short of grinding. Warm-up sets are light and count toward groove, not fatigue. Hangs paired with ab wheel close the session as loaded mobility + trunk. Block 6 is your pick: carries or cardio, whichever the day needs.</div>
+        <div class="note">Clean &amp; press is the power block — keep it fast and crisp, working sets stop well short of grinding. Warm-up sets are light and count toward groove, not fatigue. The row/deficit push-up superset is the horizontal pull-push pair — pause 1s at the top of every row, and go as deep as the rings allow on the push-ups. Hangs paired with ab wheel close the session as loaded mobility + trunk. Block 6 is your pick: carries or cardio, whichever the day needs.</div>
       </div>
     </div>
     <div class="card" style="--acc:var(--teal)">
@@ -351,13 +426,13 @@
           </div>
         </div>
         <table>
-          <tr><th>Block</th><th>Work</th><th>Dose</th></tr>
-          <tr><td>1 · Plyo</td><td>Jump rope / pogos · Box Jumps (24")</td><td>aiming for 50 reps</td></tr>
-          <tr><td>2 · Power</td><td>KB Swing <span class="alt">(alt: Jump Squat)</span></td><td>1 warm + 2 working</td></tr>
-          <tr><td>3 · Strength</td><td>Goblet Squat superset Stiff-Leg Deadlift</td><td>2 sets</td></tr>
-          <tr><td>4 · Hypertrophy</td><td>Reverse Lunge superset DB Calf Raise</td><td>2 sets</td></tr>
-          <tr><td>5 · Mobility</td><td>Weighted Step-ups 24" <span class="alt">(alt: weighted step-overs)</span> · medial glute work · 90/90 hip rotations</td><td>2 sets each</td></tr>
-          <tr><td>6 · EDC or Cardio</td><td>Optional: The EDC carries — or rope intervals / ruck / run</td><td>as time allows</td></tr>
+          <tr><th>Block</th><th>Work</th><th>Dose</th><th>Rest</th></tr>
+          <tr><td>1 · Plyo</td><td>Jump rope / pogos · Box Jumps (24")</td><td>aiming for 50 reps</td><td>45–60s</td></tr>
+          <tr><td>2 · Power</td><td>KB Swing <span class="alt">(alt: Jump Squat)</span></td><td>1 warm + 2 working</td><td>2 min</td></tr>
+          <tr><td>3 · Strength</td><td>Goblet Squat superset Stiff-Leg Deadlift</td><td>2 sets</td><td>2–3 min</td></tr>
+          <tr><td>4 · Hypertrophy</td><td>Reverse Lunge superset DB Calf Raise</td><td>2 sets</td><td>60–90s</td></tr>
+          <tr><td>5 · Mobility</td><td>Weighted Step-ups 24" <span class="alt">(alt: weighted step-overs)</span> · medial glute work · 90/90 hip rotations</td><td>2 sets each</td><td>minimal</td></tr>
+          <tr><td>6 · EDC or Cardio</td><td>Optional: The EDC carries — or rope intervals / ruck / run</td><td>as time allows</td><td>45–60s</td></tr>
         </table>
         <div class="note">Box jumps carry the plyo volume — step down every rep, never bounce off the landing. KB swings stay fast and fresh in the power block; the squat/stiff-leg pairing hits both ends of the hinge-squat spectrum in one superset. Step-ups sit in mobility as loaded control work, not a strength set — go slow and own the top. Block 6 only when time and energy allow.</div>
         <div class="finisher-box">
@@ -411,7 +486,7 @@
           <tr><td>Push-ups</td><td>10</td></tr>
           <tr><td>Squats <span class="alt">(alt: Reverse Lunges)</span></td><td>15</td></tr>
         </table>
-        <div class="note">As many rounds as possible in 20 minutes. Score it every time — this is your tracked benchmark. Template mapping: covers blocks 4 + 6 — rope for 2–3 min before, rotation mobility after.</div>
+        <div class="note"><span style="color:var(--green);font-weight:600;">Rest:</span> none scheduled — keep moving, the clock doesn't stop. If you need a breather take it before the pull-ups, not mid-set. As many rounds as possible in 20 minutes. Score it every time — this is your tracked benchmark. Template mapping: covers blocks 4 + 6 — rope for 2–3 min before, rotation mobility after.</div>
       </div>
     </div>
     <div class="card" style="--acc:var(--yellow)">
@@ -429,7 +504,7 @@
           <tr><td>Push-ups</td><td>10</td></tr>
           <tr><td>KB Swings <span class="alt">(alt: Reverse Lunges)</span></td><td>15</td></tr>
         </table>
-        <div class="note">Pause 1 second at the top of every inverted row — that's where the mid-trap/rhomboid work lives.</div>
+        <div class="note"><span style="color:var(--yellow);font-weight:600;">Rest:</span> none scheduled — same as classic Cindy. KB swings make this version far more taxing, so expect fewer rounds and don't compare the two scores. Pause 1 second at the top of every inverted row — that's where the mid-trap/rhomboid work lives.</div>
       </div>
     </div>
   </div>
@@ -452,7 +527,7 @@
           <tr><td>DB Lateral Raise</td><td>Side Delts</td></tr>
           <tr><td>Leg Raises <span class="alt">(alt: Ab Wheel)</span></td><td>Core</td></tr>
         </table>
-        <div class="note">Dumbbell-only, low fatigue cost — built for the gap between a night shift and sleep.</div>
+        <div class="note"><span style="color:var(--teal)">Rest: 45–60s</span> — or run it as a circuit through all four with no rest and one longer break at the end. Dumbbell-only, low fatigue cost — built for the gap between a night shift and sleep.</div>
         <div id="finisher-quick"></div>
       </div>
     </div>
@@ -528,7 +603,7 @@
       <div class="card-head" onclick="toggleCard(this.parentElement)">
         <div>
           <div class="card-title">The EDC</div>
-          <div class="card-meta">Every Day Carry · daily add-on</div>
+          <div class="card-meta">Every Day Carry + calves · daily add-on</div>
         </div>
         <div class="chevron">▶</div>
       </div>
@@ -537,8 +612,9 @@
           <tr><th>Movement</th><th>Sets</th></tr>
           <tr><td>Farmer's Carry (both hands)</td><td>2 x 30–45s</td></tr>
           <tr><td>Suitcase Carry (one hand, swap)</td><td>2 x 30s each side</td></tr>
+          <tr><td>Calf Raises — slow, full stretch</td><td>2 x 12–20</td></tr>
         </table>
-        <div class="note">Done every day or nearly every day, on top of whatever else the day holds. All carries are for TIME, not distance — small gym and garden, so the clock is the honest measure. Progress by adding seconds first, then load. The suitcase carry is the quiet gem — one-sided load forces the trunk to resist side-bend, so it's core work disguised as carrying shopping. Grip, traps, posture, core, all in ~5 minutes. This replaces the old farmers carry finisher.</div>
+        <div class="note">Done every day or nearly every day, on top of whatever else the day holds. All carries are for TIME, not distance — small gym and garden, so the clock is the honest measure. Progress by adding seconds first, then load. The suitcase carry is the quiet gem — one-sided load forces the trunk to resist side-bend, so it's core work disguised as carrying shopping. CALVES: this is where they'll actually grow — frequency beats intensity for calves, and they recover fast enough to hit near-daily. Non-negotiables: full stretch at the bottom with a 1-second pause, slow up, no bouncing. Off a step is better than flat floor. Alternate straight-leg (gastroc) and bent-knee/seated (soleus) across the week. Add load once 2 x 20 is easy. Whole thing is ~7 minutes.</div>
       </div>
     </div>
     <div class="card" style="--acc:var(--purple)">
@@ -700,6 +776,8 @@
           <tr><td>Jump Rope Dudes</td><td>Basic bounce &amp; boxer skip tutorials</td></tr>
           <tr><td>Movers Odyssey</td><td>Footwork &amp; flow once basics stick</td></tr>
           <tr><td>The Bioneer</td><td>Why it's in the program</td></tr>
+          <tr><td><a href="https://www.youtube.com/watch?v=w0UMVQD5ZC8" style="color:var(--teal)">Lee Downing Keat — weighted calisthenics</a></td><td>Progressing pull-ups &amp; dips by load</td></tr>
+          <tr><td><a href="https://www.youtube.com/watch?v=Gf2ELd7iWhM" style="color:var(--teal)">Lee Downing Keat — 20 min routine</a></td><td>Short-session blueprint for busy days</td></tr>
         </table>
         <div class="note">Ten minutes of watching beats an hour of guessing. Film yourself side-on once a week — the fault is almost always arms drifting wide (rope shortens, catches feet) or jumping too high.</div>
       </div>
